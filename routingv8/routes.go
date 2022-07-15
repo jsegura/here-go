@@ -25,10 +25,13 @@ func (s *RoutingService) Routes(
 	}
 
 	values := make(url.Values)
-	values.Add("return", "summary")
+	values.Add("return", "summary,polyline,elevation,actions,instructions,travelSummary,tolls,incidents,truckRoadType")
 	values.Add("transportMode", tm)
 	values.Add("origin", fmt.Sprintf("%v,%v", req.Origin.Lat, req.Origin.Long))
 	values.Add("destination", fmt.Sprintf("%v,%v", req.Destination.Lat, req.Destination.Long))
+	values.Add("spans", "length,duration,maxSpeed,speedLimit,incidents,notices,truckRoadTypes")
+	values.Add("alternatives", "6")
+	values.Add("currency", "EUR")
 
 	r, err := s.Client.NewRequest(ctx, u, http.MethodGet, values.Encode(), nil)
 	if err != nil {
