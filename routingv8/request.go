@@ -55,6 +55,7 @@ type RoutesRequest struct {
 type GeoWaypoint struct {
 	Lat  float64 `json:"lat"`
 	Long float64 `json:"lng"`
+	Elv  float64 `json:"elv,omitempty"`
 }
 
 // DepartureTimeAny enforces non time-aware routing.

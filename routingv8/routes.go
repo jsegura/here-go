@@ -25,11 +25,11 @@ func (s *RoutingService) Routes(
 	}
 
 	values := make(url.Values)
-	values.Add("return", "summary,polyline,elevation,actions,instructions,travelSummary,tolls,incidents,truckRoadType")
+	values.Add("return", "summary,polyline,elevation,actions,instructions,travelSummary,tolls,incidents")
 	values.Add("transportMode", tm)
 	values.Add("origin", fmt.Sprintf("%v,%v", req.Origin.Lat, req.Origin.Long))
 	values.Add("destination", fmt.Sprintf("%v,%v", req.Destination.Lat, req.Destination.Long))
-	values.Add("spans", "length,duration,maxSpeed,speedLimit,incidents,notices,truckRoadTypes")
+	values.Add("spans", "length,duration,maxSpeed,speedLimit,incidents,notices")
 	values.Add("alternatives", "6")
 	values.Add("currency", "EUR")
 
